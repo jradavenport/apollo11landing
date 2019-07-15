@@ -9,7 +9,7 @@ api = tweepy.API(auth)
 
 
 # Where this is running on my computer
-dir = '/Users/james/Dropbox/apps/apollo11landing/'
+dir = '/Users/james/Dropbox/Apps/apollo11landing/'
 
 # read in the big table of Tweets, already prepped
 df = pd.read_csv(dir + 'msgs.csv')
