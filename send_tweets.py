@@ -2,6 +2,7 @@ import tweepy
 import pandas as pd
 from datetime import datetime
 from time import sleep
+import numpy as np
 import keys # DON'T PUT YOUR KEYS IN YOUR CODE!
 auth = tweepy.OAuthHandler(keys.api_key, keys.api_secret)
 auth.set_access_token(keys.token, keys.token_secret)
@@ -28,27 +29,26 @@ if sum(to_post) > 0:
         if twt[-1] == '.':
             twt = twt[0:-1]
 
-        xtra = ''
-        if len(twt) < 248:
-            xtra = ' #apollo50th'
-        elif len(twt) > 248 & len(twt) < 250:
-            xtra = ' #apollo50'
-        # api.update_status(twt+xtra)
         try:
             api.update_status(twt)
-
         except tweepy.TweepError as error:
             if error.api_code == 187:
                 # Do something special
                 print('>>> duplicate message: ' + twt)
-                api.update_status(twt.replace(':',';',1)+xtra)
-            # else:
-            #    raise error
+
+                twt = twt.replace('OK', np.random.choice(['OK', 'Okay', 'O.K.','ok', 'Ok']))
+                twt = twt.replace('Roger', np.random.choice(['Roger', 'Roger..']))
+                twt = twt.replace('...', np.random.choice(['...', '..', '. .']))
+                twt = twt.replace('Copy', np.random.choice(['Copy', 'Copy..']))
+                twt = twt.replace('Stand by', np.random.choice(['Stand by', 'stand by..']))
+
+
+                bks = np.random.choice([';', '|', '-', '/'])
+                if len(twt) < 248:
+                    xtra = np.random.choice([' #apollo50th', ' #apollo11', ' #apollo50', '  ', ' #nasa', ' #apollo', ' #moon'])
+
+                api.update_status(twt.replace(':',bks,1)+xtra)
 
         # be kind, take a pause
-        sleep(50./sum(to_post))
-
-    # update the silly "sent" column
-    # df.at[to_post, 'sent'] = 1
-    # write it back out!
-    # df.to_csv(dir + 'msgs.csv')
+        if sum(to_post) > 1:
+            sleep(50./sum(to_post))
