@@ -25,12 +25,30 @@ if sum(to_post) > 0:
 
     for twt in tweets:
         # send the actual tweet
-        api.update_status(twt)
+        if twt[-1] == '.':
+            twt = twt[0:-1]
+
+        xtra = ''
+        if len(twt) < 248:
+            xtra = ' #apollo50th'
+        elif len(twt) > 248 & len(twt) < 250:
+            xtra = ' #apollo50'
+        # api.update_status(twt+xtra)
+        try:
+            api.update_status(twt)
+
+        except tweepy.TweepError as error:
+            if error.api_code == 187:
+                # Do something special
+                print('>>> duplicate message: ' + twt)
+                api.update_status(twt.replace(':',';',1)+xtra)
+            # else:
+            #    raise error
 
         # be kind, take a pause
         sleep(50./sum(to_post))
 
     # update the silly "sent" column
-    df.at[to_post, 'sent'] = 1
+    # df.at[to_post, 'sent'] = 1
     # write it back out!
-    df.to_csv(dir + 'msgs.csv')
+    # df.to_csv(dir + 'msgs.csv')
