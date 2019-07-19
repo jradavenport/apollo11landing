@@ -40,14 +40,15 @@ if sum(to_post) > 0:
                 twt = twt.replace('Roger', np.random.choice(['Roger', 'Roger..']))
                 twt = twt.replace('...', np.random.choice(['...', '..', '. .']))
                 twt = twt.replace('Copy', np.random.choice(['Copy', 'Copy..']))
+                twt = twt.replace('Apollo11', np.random.choice(['Apollo11', 'Apollo 11']))
                 twt = twt.replace('Stand by', np.random.choice(['Stand by', 'stand by..']))
 
 
-                bks = np.random.choice([';', '|', '-', '/'])
+                bks = np.random.choice(['; ', '| ', '- ', ';',':'])
                 if len(twt) < 248:
                     xtra = np.random.choice([' #apollo50th', ' #apollo11', ' #apollo50', '  ', ' #nasa', ' #apollo', ' #moon'])
 
-                api.update_status(twt.replace(':',bks,1)+xtra)
+                api.update_status(twt.replace(': ',bks,1)+xtra)
 
         # be kind, take a pause
         if sum(to_post) > 1:

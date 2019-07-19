@@ -14070,7 +14070,7 @@ We copy you down, Eagle.
 Houston, Tranquility Base here.
 <br><br>
 04 06 46 04         <font color="0000FF">CDR</font> (TRANQ)<br>
-<b>THE EAGLE HAS LANDED.</b>
+THE EAGLE HAS LANDED.
 <br><br>
 04 06 46 06        <font color="0000FF">CC</font><br>
 Roger, Tranquility. We copy you on the ground. You got a bunch of guys about to turn blue. We're breathing again. Thanks a lot.
@@ -17018,7 +17018,7 @@ I'm at the foot of the ladder. The LM footpads are only depressed in the surface
 I'm going to step off the LM now.
 <br><br>
 04 13 24 48        <font color="0000FF">CDR</font> (TRANQ)<br>
-<b>THAT'S ONE SMALL STEP FOR (A) MAN, ONE GIANT LEAP FOR MANKIND.</b>
+THAT'S ONE SMALL STEP FOR (A) MAN, ONE GIANT LEAP FOR MANKIND.
 <br><br>
 04 13 24 48        <font color="0000FF">CDR</font> (TRANQ)<br>
 And the - the surface is fine and powdery. I can - I can pick it up loosely with my toe. It does adhere in fine layers like powdered charcoal to the sole and sides of my boots. I only go in a small fraction of an inch, maybe an eighth of an inch, but I can see the footprints of my boots and the treads in the fine, sandy particles.
